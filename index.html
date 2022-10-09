@@ -20,11 +20,21 @@
       );
       function App() {
         const [currentList, setCurrentList] = React.useState(allData);
+
+        function numAscending() {
+        setCurrentList(allData.sort((a, b) => a - b))
+      };
+
+      function filterOddNumbers() {
+        setCurrentList(allData.filter((num) => num % 2 === 1)
+        )
+      };
+
         return (
           <>
             <div style={{ display: "flex" }}>
-              <button style={{ width: "100px", height: "100px" }}>Sort</button>
-              <button style={{ width: "100px", height: "100px" }}>
+              <button style={{ width: "100px", height: "100px" }} onClick={numAscending}>Sort</button>
+              <button style={{ width: "100px", height: "100px" }} onClick={filterOddNumbers}>
                 Filter Odd Numbers
               </button>
             </div>
